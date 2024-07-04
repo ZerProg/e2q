@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circle Grid</title>
+</head>
+<style>
+    body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #000000;
+    margin: 0;
+    transition: 1s;
+}
+.click{
+    position: absolute;
+    width: 3.1vh;
+    height: 4.7vh;
+    top: 20.7%;
+    left: 30.5%;
+    z-index: 2;
+}
+
+.container {
+    position: relative;
+    width: 80%;
+    height: 80%;
+    background-color: #272727;
+    border: 1px solid #ff000000;
+    transition: 1s;
+}
+
+.svet{
+    position: absolute;
+	height: 0;
+    background-color: #59595900;
+    top: 0;
+    border-bottom: 30vh solid rgba(255, 246, 122, 0);
+	border-left: 1.5vh solid transparent;
+	border-right: 1.5vh solid transparent;
+	width: 1%;
+    z-index: 1;
+    transition: 1s;
+}
+
+@keyframes light{
+    0%{
+    filter: drop-shadow(0 0 10px rgba(255, 246, 122, 0.636)) drop-shadow(0 0 10px rgba(255, 246, 122, 0.636)) drop-shadow(0 0 10px rgba(255, 246, 122, 0.636)) drop-shadow(0 0 10px rgba(255, 246, 122, 0.636)) drop-shadow(0 20px 10px rgba(255, 246, 122, 0.636)) drop-shadow(0 20px 10px rgba(255, 246, 122, 0.636));
+    }
+    30%{
+    border-bottom: 30vh solid rgba(255, 246, 122, 0);
+	border-left: 5vh solid transparent;
+	border-right: 5vh solid transparent;
+	width: 5%;
+    background-color: #f7030300;
+    }
+    60%{
+    border-bottom: 60vh solid rgba(255, 246, 122, 0.636);
+	border-left: 20vh solid transparent;
+	border-right: 20vh solid transparent;
+	width: 15%;
+    background-color: #f7030300;
+    }
+    100%{
+    border-bottom: 80vh solid rgba(255, 246, 122, 0.079);
+	border-left: 30vh solid transparent;
+	border-right: 30vh solid transparent;
+	width: 30%;
+    background-color: #f7030300;
+    filter: drop-shadow(0 0 10px rgba(255, 246, 122, 0.636)) drop-shadow(0 0 10px rgba(255, 246, 122, 0.636)) drop-shadow(0 0 10px rgba(255, 246, 122, 0.636)) drop-shadow(0 0 10px rgba(255, 246, 122, 0.636)) drop-shadow(0 20px 10px rgba(255, 246, 122, 0.636)) drop-shadow(0 20px 10px rgba(255, 246, 122, 0.636)) drop-shadow(0 0 50vh rgba(255, 246, 122, 0.636));
+    }
+}
+
+.circle {
+    width: 50px;
+    height: 50px;
+    background-color: #595959;
+    border-radius: 50%;
+    position: absolute;
+    transition: 1s;
+}
+
+.kv {
+    width: 8vh;
+    height: 10%;
+    background-color: #ccc;
+    border: 4px solid black;
+    border-radius: 10%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 1s;
+}
+
+.kv div:nth-child(1){
+    width: 2.25vh;
+    height: 37.5%;
+    background-color: #ccc;
+    border-radius: 15%;
+    outline: 4px solid rgb(0, 0, 0);
+}
+
+.kv { top: 45%; left: 45%; }
+#circle1 { top: 10%; left: 30%; }
+#circle2 { top: 10%; right: 30%; }
+#circle3 { bottom: 10%; left: 30%; }
+#circle4 { bottom: 10%; right: 30%; }
+#circle5 { top: 50%; left: 15%; transform: translate(-50%, -50%); }
+#circle6 { bottom: 50%; right: 15%; transform: translate(50%, 50%); }
+</style>
+<body>
+    <style class="lighton">
+
+    </style>
+        <div class="svet"></div>
+    <div class="container">
+        <div class="circle" id="circle1"></div>
+        <div class="circle" id="circle2"></div>
+        <div class="circle" id="circle3"></div>
+        <div class="circle" id="circle4"></div>
+        <div class="circle" id="circle5"></div>
+        <div class="circle" id="circle6"></div>
+        <div class="kv"><div class="per"></div>
+        <div class="click"></div></div>
+    </div>
+    <script>
+        let per = document.querySelector(".per");
+        let click = document.querySelector(".click");
+        let svet = document.querySelector(".svet");
+        let style = document.querySelector(".lighton");
+
+        let st = `.circle{
+    background-color: #9a9a9a;
+}
+.kv{
+    background-color: #ffffff;
+    border: 4px solid rgb(24, 24, 24);
+}
+.kv div:nth-child(1){
+    background-color: #ffffff;
+}
+body{
+    background-color: #2a2a2a;
+}
+.container{
+    background-color: #4e4e4e;
+}`;
+        
+per.style="border-bottom: 5px solid rgb(97, 97, 97);";
+        var perTemp = 0;
+        click.addEventListener("click", ()=>{
+            if (perTemp==0) {
+                perTemp=1;
+                svet.style='animation: light 0.5s forwards linear;';
+                per.style="border-top: 5px solid rgb(157, 157, 157);";
+                style.innerHTML=st;
+            } else{
+                perTemp=0;
+                svet.style='0';
+                per.style="border-bottom: 5px solid rgb(97, 97, 97);";
+                style.innerHTML='';
+            }
+        })
+    </script>
+</body>
+</html>

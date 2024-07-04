@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Информация о машинах</title>
+</head>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.car-info {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+</style>
+<body>
+    <div class="container">
+        <h1>Выберите машину</h1>
+        <select id="carSelect" onchange="displayCarInfo()">
+            <option value="" disabled selected>Выберите машину</option>
+            <option value="0" >Toyota Camry</option>
+            <option value="1">BMW 5 Series</option>
+            <option value="2">Audi A6</option>
+            <option value="3">Mercedes-Benz E-Class</option>
+        </select>
+        <div id="carInfo" class="car-info"></div>
+    </div>
+    <script>
+        const cars = [
+    {
+        name: "Toyota Camry",
+        weight: "1490 kg",
+        price: "25,000 USD",
+        maxSpeed: "210 km/h",
+        brand: "Toyota",
+        year: "2020",
+        country: "Japan"
+    },
+    {
+        name: "BMW 5 Series",
+        weight: "1625 kg",
+        price: "50,000 USD",
+        maxSpeed: "250 km/h",
+        brand: "BMW",
+        year: "2021",
+        country: "Germany"
+    },
+    {
+        name: "Audi A6",
+        weight: "1700 kg",
+        price: "55,000 USD",
+        maxSpeed: "250 km/h",
+        brand: "Audi",
+        year: "2021",
+        country: "Germany"
+    },
+    {
+        name: "Mercedes-Benz E-Class",
+        weight: "1750 kg",
+        price: "60,000 USD",
+        maxSpeed: "250 km/h",
+        brand: "Mercedes-Benz",
+        year: "2021",
+        country: "Germany"
+    }
+];
+
+function displayCarInfo() {
+    const carSelect = document.getElementById("carSelect");
+    const carInfo = document.getElementById("carInfo");
+    const selectedCar = cars[carSelect.value];
+
+    if (selectedCar) {
+        carInfo.innerHTML = `
+            <h2>${selectedCar.name}</h2>
+            <p><strong>Марка:</strong> ${selectedCar.brand}</p>
+            <p><strong>Вес:</strong> ${selectedCar.weight}</p>
+            <p><strong>Стоимость:</strong> ${selectedCar.price}</p>
+            <p><strong>Максимальная скорость:</strong> ${selectedCar.maxSpeed}</p>
+            <p><strong>Год производства:</strong> ${selectedCar.year}</p>
+            <p><strong>Страна производителя:</strong> ${selectedCar.country}</p>
+        `;
+    } else {
+        carInfo.innerHTML = "";
+    }
+}
+
+    </script>
+</body>
+</html>

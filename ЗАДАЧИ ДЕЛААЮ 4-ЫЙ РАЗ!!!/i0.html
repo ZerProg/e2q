@@ -1,0 +1,147 @@
+<!--2024 ZerProg studio-->
+<!DOCTYPE html>
+<!--2024 ZerProg studio-->
+<html lang="ru">
+    <!--2024 ZerProg studio-->
+<head>
+    <!--2024 ZerProg studio-->
+    <meta charset="UTF-8">
+    <!--2024 ZerProg studio-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <!--2024 ZerProg studio-->
+    <title>Регистрация</title>
+    <!--2024 ZerProg studio--><style>
+        /*© 2024 ZerProg studio*/
+     /*© 2024 ZerProg studio*/   body {/*© 2024 ZerProg studio*/
+            /*© 2024 ZerProg studio*/
+   /*© 2024 ZerProg studio*/ font-family: sans-serif;/*© 2024 ZerProg studio*/
+    /*© 2024 ZerProg studio*/
+}
+/*© 2024 ZerProg studio*/
+/*© 2024 ZerProg studio*/.container {/*© 2024 ZerProg studio*/
+    /*© 2024 ZerProg studio*/
+  /*© 2024 ZerProg studio*/  width: 500px;
+    /*© 2024 ZerProg studio*/
+   /*© 2024 ZerProg studio*/ margin: 0 auto;
+ /*© 2024 ZerProg studio*/   /*© 2024 ZerProg studio*/
+ /*© 2024 ZerProg studio*/   padding: 20px;
+    /*© 2024 ZerProg studio*/
+    /*© 2024 ZerProg studio*/border: 1px solid #ccc;
+    /*© 2024 ZerProg studio*/
+}/*© 2024 ZerProg studio*/
+/*© 2024 ZerProg studio*/
+/*© 2024 ZerProg studio*/h1/*© 2024 ZerProg studio*/ {/*© 2024 ZerProg studio*/
+    /*© 2024 ZerProg studio*/
+    text-align: center;
+    /*© 2024 ZerProg studio*/
+    margin-bottom: 20px;
+/*© 2024 ZerProg studio*/
+/*© 2024 ZerProg studio*/}/*© 2024 ZerProg studio*/
+/*© 2024 ZerProg studio*/
+/*© 2024 ZerProg studio*/label {/*© 2024 ZerProg studio*/
+    /*© 2024 ZerProg studio*/
+    /*© 2024 ZerProg studio*/display: block;
+    /*© 2024 ZerProg studio*/
+    /*© 2024 ZerProg studio*/margin-bottom: 5px;/*© 2024 ZerProg studio*/
+}/*© 2024 ZerProg studio*/
+/*© 2024 ZerProg studio*/
+/*© 2024 ZerProg studio*/input[type="text"],/*© 2024 ZerProg studio*/
+/*© 2024 ZerProg studio*/input[type="email"],/*© 2024 ZerProg studio*/
+/*© 2024 ZerProg studio*/input[type="password"] {/*© 2024 ZerProg studio*/
+    /*© 2024 ZerProg studio*/width: 100%;/*© 2024 ZerProg studio*/
+    /*© 2024 ZerProg studio*/padding: 8px;/*© 2024 ZerProg studio*/
+    /*© 2024 ZerProg studio*/border: 1px solid #ccc;/*© 2024 ZerProg studio*/
+    /*© 2024 ZerProg studio*/margin-bottom: 15px;/*© 2024 ZerProg studio*/
+}/*© 2024 ZerProg studio*/
+/*© 2024 ZerProg studio*/.seepass{/*© 2024 ZerProg studio*/
+    position: absolute;/*© 2024 ZerProg studio*/
+    margin-left: 10px;/*© 2024 ZerProg studio*/
+    transform: scale(1.5, 1.5);/*© 2024 ZerProg studio*/
+}/*© 2024 ZerProg studio*/
+/*© 2024 ZerProg studio*/button {/*© 2024 ZerProg studio*/
+   /*© 2024 ZerProg studio*/ background-color: #4CAF50;/*© 2024 ZerProg studio*/
+   /*© 2024 ZerProg studio*/ color: white;/*© 2024 ZerProg studio*/
+   /*© 2024 ZerProg studio*/ padding: 10px 20px;/*© 2024 ZerProg studio*/
+    /*© 2024 ZerProg studio*/border: none;/*© 2024 ZerProg studio*/
+    cursor: pointer;/*© 2024 ZerProg studio*/
+}/*© 2024 ZerProg studio*/
+/*© 2024 ZerProg studio*/
+    </style><!--2024 ZerProg studio-->
+</head><!--2024 ZerProg studio-->
+<body><!--2024 ZerProg studio-->
+    <div class="container"><!--2024 ZerProg studio-->
+        <h1>Регистрация</h1><!--2024 ZerProg studio-->
+        <form id="registration-form"><!--2024 ZerProg studio-->
+            <label for="username">Имя пользователя:</label><!--2024 ZerProg studio-->
+            <input type="text" id="username" name="username" required><!--2024 ZerProg studio-->
+<!--2024 ZerProg studio-->
+            <label for="email">Email:</label><!--2024 ZerProg studio-->
+            <input type="email" id="email" name="email" required><!--2024 ZerProg studio-->
+<!--2024 ZerProg studio-->
+            <label for="password">Пароль:</label><!--2024 ZerProg studio-->
+            <input type="password" id="password" name="password" required><!--2024 ZerProg studio-->
+            <label class="sse">Показать пороль
+            <input type="checkbox" class="seepass"></label><!--2024 ZerProg studio-->
+            <br><!--2024 ZerProg studio-->
+            <button type="submit">Зарегистрироваться</button><!--2024 ZerProg studio-->
+        </form><!--2024 ZerProg studio-->
+    </div><!--2024 ZerProg studio-->
+    <!--2024 ZerProg studio-->
+    <script>/*© 2024 ZerProg studio*/
+   /*© 2024 ZerProg studio*/ let Name = localStorage.getItem("user");/*© 2024 ZerProg studio*/
+   /*© 2024 ZerProg studio*/ if (Name!=null) {/*© 2024 ZerProg studio*/
+   /*© 2024 ZerProg studio*/ let email = localStorage.getItem("email");/*© 2024 ZerProg studio*/
+   /*© 2024 ZerProg studio*/ let pass = localStorage.getItem("pass");/*© 2024 ZerProg studio*/
+      /*© 2024 ZerProg studio*/  document.body.innerHTML=`<!--2024 ZerProg studio--><div><!--2024 ZerProg studio--><h2><!--2024 ZerProg studio-->Login:<!--2024 ZerProg studio--> ${Name}</h2><!--2024 ZerProg studio--></div><!--2024 ZerProg studio-->
+   <!--2024 ZerProg studio--> <div><!--2024 ZerProg studio--><h2><!--2024 ZerProg studio-->Email:<!--2024 ZerProg studio--> ${email}<!--2024 ZerProg studio--></h2><!--2024 ZerProg studio--></div><!--2024 ZerProg studio-->
+  <!--2024 ZerProg studio-->  <div><!--2024 ZerProg studio--><h3><!--2024 ZerProg studio-->Password:<!--2024 ZerProg studio--> </h3><!--2024 ZerProg studio-->`;/*© 2024 ZerProg studio*/
+       /*© 2024 ZerProg studio*/ var h3 = document.querySelector("h3");/*© 2024 ZerProg studio*//*© 2024 ZerProg studio*/
+     /*© 2024 ZerProg studio*/       for (let i = 0; i < pass.length; i++) {/*© 2024 ZerProg studio*/
+      /*© 2024 ZerProg studio*/      h3.innerHTML+='*';/*© 2024 ZerProg studio*/
+        }/*© 2024 ZerProg studio*/
+        
+    /*© 2024 ZerProg studio*/    document.body.innerHTML+=`<!--2024 ZerProg studio--><button type="submit" class="del"><!--2024 ZerProg studio-->Удалить<!--2024 ZerProg studio--> аккаунт<!--2024 ZerProg studio--></button><!--2024 ZerProg studio-->`;/*© 2024 ZerProg studio*/
+  /*© 2024 ZerProg studio*/      var del = document.querySelector(".del");/*© 2024 ZerProg studio*/
+    /*© 2024 ZerProg studio*/    del.onclick=()=>{/*© 2024 ZerProg studio*/
+          /*© 2024 ZerProg studio*/  localStorage.removeItem('user');/*© 2024 ZerProg studio*/
+        /*© 2024 ZerProg studio*/    localStorage.removeItem('email');/*© 2024 ZerProg studio*/
+        /*© 2024 ZerProg studio*/    localStorage.removeItem('pass');/*© 2024 ZerProg studio*/
+        /*© 2024 ZerProg studio*/    location.href='';/*© 2024 ZerProg studio*/
+     /*© 2024 ZerProg studio*/   }/*© 2024 ZerProg studio*/
+   /*© 2024 ZerProg studio*/ }/*© 2024 ZerProg studio*/
+  /*© 2024 ZerProg studio*/  else{/*© 2024 ZerProg studio*/
+    /*© 2024 ZerProg studio*/    const registrationForm = document.getElementById('registration-form');/*© 2024 ZerProg studio*/
+/*© 2024 ZerProg studio*/
+     /*© 2024 ZerProg studio*/   const password = document.getElementById('password');/*© 2024 ZerProg studio*/
+      /*© 2024 ZerProg studio*/  const see = document.querySelector(".seepass");/*© 2024 ZerProg studio*/
+     /*© 2024 ZerProg studio*/   const sse = document.querySelector(".sse");/*© 2024 ZerProg studio*/
+   /*© 2024 ZerProg studio*/     var click = false;/*© 2024 ZerProg studio*/
+    /*© 2024 ZerProg studio*/    see.addEventListener("click", ()=>{
+            see.setAttribute('checked', '')
+            if(click==false){/*© 2024 ZerProg studio*/
+           /*© 2024 ZerProg studio*/     password.setAttribute('type', 'text');/*© 2024 ZerProg studio*/
+        /*© 2024 ZerProg studio*/        click=true;/*© 2024 ZerProg studio*/
+     /*© 2024 ZerProg studio*/       }/*© 2024 ZerProg studio*/
+     /*© 2024 ZerProg studio*/       else{/*© 2024 ZerProg studio*/
+           /*© 2024 ZerProg studio*/     password.setAttribute('type', 'password');/*© 2024 ZerProg studio*/
+     /*© 2024 ZerProg studio*/           click=false;/*© 2024 ZerProg studio*/
+   /*© 2024 ZerProg studio*/         }/*© 2024 ZerProg studio*/
+     /*© 2024 ZerProg studio*/   })/*© 2024 ZerProg studio*/
+/*© 2024 ZerProg studio*/
+  /*© 2024 ZerProg studio*/  registrationForm.addEventListener('submit', (event) => {
+     /*© 2024 ZerProg studio*/   event.preventDefault();/*© 2024 ZerProg studio*/   
+
+        const username = document./*© 2024 ZerProg studio*/getElementById('username');
+     /*© 2024 ZerProg studio*/   const email = document.getElementById('email');/*© 2024 ZerProg studio*/
+/*© 2024 ZerProg studio*/
+    /*© 2024 ZerProg studio*/    alert(`Успешно © 2024 ZerProg studio!`);/*© 2024 ZerProg studio*/
+   /*© 2024 ZerProg studio*/     localStorage.setItem("user", username.value);/*© 2024 ZerProg studio*/
+   /*© 2024 ZerProg studio*/     localStorage.setItem("email", email.value);/*© 2024 ZerProg studio*/
+   /*© 2024 ZerProg studio*/     localStorage.setItem("pass", password.value);/*© 2024 ZerProg studio*/
+        /*© 2024 ZerProg studio*/
+     /*© 2024 ZerProg studio*/   location.href='';/*© 2024 ZerProg studio*/
+    });
+    }
+    </script>
+</body>
+</html>

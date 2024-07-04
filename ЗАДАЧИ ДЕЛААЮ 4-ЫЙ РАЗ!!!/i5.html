@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{margin: 0;}
+    body{overflow: hidden;}
+    div{margin-left: 0%;display: flex;
+        transition: 0.5s;}
+    img{border: 10vh solid white;}
+    button{
+        width: 10vh;
+        height: 5vh;
+        font-size: 4vh;
+        border: 0;
+        position: absolute;
+        top: 50%;
+        background: rgba(188, 187, 187, 0.441);
+    }
+    .left{
+        left: 10vh;
+    }
+    .right{
+        right: 10vh;
+    }
+</style>
+<body>
+    <div>
+        <img src="img/1.jpg" alt="" class="img1">
+        <img src="img/2.jpg" alt="" class="img2">
+        <img src="img/3.jpg" alt="" class="img3">
+        <img src="img/4.jpg" alt="" class="img4">
+        <img src="img/5.jpg" alt="" class="img5">
+        <img src="img/6.jpg" alt="" class="img6">
+    </div>
+    <button class="left"><--</button>
+    <button class="right">--></button>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+        let L = document.querySelector('.left');
+        let R = document.querySelector('.right');
+        let div = document.querySelector('div');
+        let pos = 0;
+        L.onclick=()=>{
+            if(pos>0){ pos-=103.15;}
+            div.style=`margin-left: -${pos}vh;`
+
+        }
+        R.onclick=()=>{
+            if(pos<400){ pos+=103.15;}
+            div.style=`margin-left: -${pos}vh;`
+
+        }
+        $(document).ready(function () {
+    $(window).on('wheel', function(e){
+        if (e.originalEvent.deltaY>0) {
+            if(pos<400){ pos+=103.15;}
+            div.style=`margin-left: -${pos}vh;`
+        }
+        else{
+            if(pos>0){ pos-=103.15;}
+            div.style=`margin-left: -${pos}vh;`
+        }
+    });
+})
+    </script>
+</body>
+</html>

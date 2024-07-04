@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Игра Pac-Man</title>
+</head>
+<style>
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+}
+
+.game-container {
+    position: relative;
+    width: 600px;
+    height: 400px;
+    background-color: #000;
+    border: 2px solid #fff;
+    overflow: hidden;
+}
+
+.pacman {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: yellow;
+    border-radius: 50%;
+    transition: all 0.2s;
+}
+
+.ghost {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: red;
+    border-radius: 50%;
+    transition: all 0.2s;
+}
+
+</style>
+<body>
+    <div class="game-container" id="gameContainer">
+        <div class="pacman" id="pacman"></div>
+        <div class="ghost" id="ghost"></div>
+    </div>
+    <script>
+        const pacman = document.getElementById('pacman');
+const ghost = document.getElementById('ghost');
+const gameContainer = document.getElementById('gameContainer');
+
+let pacmanPosition = { x: 0, y: 0 };
+let ghostPosition = { x: 70, y: 70 };
+const stepSize = 20;
+
+document.addEventListener('keydown', movePacman);
+
+function movePacman(event) {
+    switch (event.key) {
+        case 'ArrowUp':
+            if (pacmanPosition.y > 0) pacmanPosition.y -= stepSize;
+            break;
+        case 'ArrowDown':
+            if (pacmanPosition.y < gameContainer.clientHeight - 40) pacmanPosition.y += stepSize;
+            break;
+        case 'ArrowLeft':
+            if (pacmanPosition.x > 0) pacmanPosition.x -= stepSize;
+            break;
+        case 'ArrowRight':
+            if (pacmanPosition.x < gameContainer.clientWidth - 40) pacmanPosition.x += stepSize;
+            break;
+    }
+    pacman.style.transform = `translate(${pacmanPosition.x}px, ${pacmanPosition.y}px)`;
+    checkCollision();
+}
+
+function checkCollision() {
+    if (pacmanPosition.x < ghostPosition.x + 40 &&
+        pacmanPosition.x + 40 > ghostPosition.x &&
+        pacmanPosition.y < ghostPosition.y + 40 &&
+        pacmanPosition.y + 40 > ghostPosition.y) {
+        alert('Игра окончена! Pac-Man пойман!');
+        resetGame();
+    }
+}
+
+function resetGame() {
+    pacmanPosition = { x: 0, y: 0 };
+    pacman.style.transform = `translate(${pacmanPosition.x}px, ${pacmanPosition.y}px)`;
+}
+
+function moveGhost() {
+    const directions = ['up', 'down', 'left', 'right'];
+    const randomDirection = directions[Math.floor(Math.random() * directions.length)];
+
+    switch (randomDirection) {
+        case 'up':
+            if (ghostPosition.y > 0) ghostPosition.y -= stepSize;
+            break;
+        case 'down':
+            if (ghostPosition.y < gameContainer.clientHeight - 40) ghostPosition.y += stepSize;
+            break;
+        case 'left':
+            if (ghostPosition.x > 0) ghostPosition.x -= stepSize;
+            break;
+        case 'right':
+            if (ghostPosition.x < gameContainer.clientWidth - 40) ghostPosition.x += stepSize;
+            break;
+    }
+    ghost.style.transform = `translate(${ghostPosition.x}px, ${ghostPosition.y}px)`;
+    checkCollision();
+}
+
+setInterval(moveGhost, 100);
+
+    </script>
+</body>
+</html>

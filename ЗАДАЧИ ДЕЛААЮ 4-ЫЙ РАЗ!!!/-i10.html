@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Определение антропоморфизма</title>
+    <link rel="icon" href="png/images.ico">
+    </head>
+<body>
+<style>
+    body {
+    font-family: sans-serif;
+    text-align: center;
+}
+.div1{
+    background-image: url('png/smur-sprite.png');
+    width: 70px;
+    height: 123px;
+    display: none;
+position: absolute;
+left: 30vh;
+top: 7.5vh;
+filter: drop-shadow(3px 5px 5px #fefeff);
+}
+@keyframes play{
+100%{
+background-position: -1135px;
+}
+}@keyframes play2{
+    49%{
+    left: 55vh;
+    transform: rotateY(0deg);
+}
+    50%{
+    transform: rotateY(180deg);
+
+}
+    100%{
+    transform: rotateY(180deg);
+    }
+}
+#inputSentence, #checkButton {
+    margin: 10px;
+    margin-top: 100px;
+    padding: 8px;
+}
+
+#result {
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+</style>
+    <h1>Определим антропоморфизм!</h1>
+    <input type="text" id="inputSentence" placeholder="Введите предложение">
+    <button id="checkButton">Проверить</button>
+    <div id="result"></div>
+    <div class="dd"><div class="div1"><button onclick="audio.play();"></button></div>
+
+    <script>
+        const inputSentence = document.getElementById('inputSentence');
+const checkButton = document.getElementById('checkButton');
+const result = document.getElementById('result');
+
+checkButton.addEventListener('click', () => {
+    const sentence = inputSentence.value.toLowerCase();
+
+    if (sentence=='человек'|sentence=='люди'|sentence=='животное'|sentence=='птица'|sentence=='рыба'|sentence=='насекомое')  {
+       document.querySelector('.div1').style=`animation: play 1.5s steps(16) infinite,play2 10s linear infinite;display: block;`;
+    } else {
+        result.textContent = 'В данном предложении нет антропоморфизма.';
+    }
+});
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Book(title, author, price) { // Имя конструктора (Book) обозначается с заглавной буквы
+
+this.title = title;
+this.author = author;
+this.price = price;
+}
+// можем создавать множество однотипных объектов используя КОНСТРУКТОР (Book)
+let book_2 = new Book('Му-Му', 'Тургенев', 10);
+let book_3 = new Book('Онегин', 'Пушкин', 20);
+
+console.log(book_2);
+console.log(book_2);
+let a = [1,2,3,4,5,6,7];
+
+let b = a.map((item, index)=>{
+return item
+});
+console.log(b)
+console.log(a)
+    </script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Игра Го</title>
+</head>
+<style>
+    body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+.game-container {
+    text-align: center;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(19, 30px);
+    grid-template-rows: repeat(19, 30px);
+    gap: 2px;
+    margin: 20px auto;
+}
+
+.cell {
+    width: 30px;
+    height: 30px;
+    background-color: #efefef;
+    border: 1px solid #ccc;
+    position: relative;
+}
+
+.stone {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.stone.black {
+    background-color: black;
+}
+
+.stone.white {
+    background-color: white;
+}
+
+</style>
+<body>
+    <div class="game-container">
+        <h1>Игра Го</h1>
+        <div class="board" id="board"></div>
+    </div>
+    <script>
+const board = document.getElementById('board');
+const size = 19;
+let currentPlayer = 'black';
+
+const gameState = Array.from({ length: size }, () => Array(size).fill(null));
+
+function createBoard() {
+    for (let row = 0; row < size; row++) {
+        for (let col = 0; col < size; col++) {
+            const cell = document.createElement('div');
+            cell.className = 'cell';
+            cell.addEventListener('click', () => placeStone(row, col));
+            board.appendChild(cell);
+        }
+    }
+}
+
+function placeStone(row, col) {
+    if (gameState[row][col] !== null) return;
+
+    gameState[row][col] = currentPlayer;
+    renderBoard();
+
+    currentPlayer = currentPlayer === 'black' ? 'white' : 'black';
+}
+
+function renderBoard() {
+    const cells = document.querySelectorAll('.cell');
+    cells.forEach((cell, index) => {
+        const row = Math.floor(index / size);
+        const col = index % size;
+        cell.innerHTML = '';
+
+        if (gameState[row][col] !== null) {
+            const stone = document.createElement('div');
+            stone.className = `stone ${gameState[row][col]}`;
+            cell.appendChild(stone);
+        }
+    });
+}
+
+createBoard();
+
+    </script>
+</body>
+</html>
